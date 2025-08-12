@@ -26,6 +26,7 @@ function App() {
   const [clientData, setClientData] = useState();
   const userId = sessionStorage.getItem("LoginUserId");
 
+  const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -47,7 +48,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename={base}>
         <ToastContainer
           position="top-center"
           autoClose={2000}
@@ -99,7 +100,7 @@ function App() {
           </>
         ) : (
           <Routes>
-            <Route
+            {/* <Route
               path="/client/:clientId"
               element={
                 <LoginProvider>
@@ -121,7 +122,7 @@ function App() {
                   />
                 </LoginProvider>
               }
-            />
+            /> */}
             <Route
               path="/"
               element={
